@@ -1,25 +1,22 @@
-Nombre,Energía,Carbohidratos,Grasas totales,Azúcares,Grasas saturadas,Fibra dietética,Proteínas,Sal
-Spaghetti alla carbonara,224.6 kcal,22.0 g,11.6 g,1.5 g,4.0 g,1.0 g,7.9 g,0.8 g
-BBQ Pulled Pork,163.5 kcal,10.8 g,9.5 g,4.8 g,4.4 g,1.1 g,7.2 g,0.8 g
-Solomillo stróganov,153.0 kcal,19.6 g,5.2 g,1.7 g,2.1 g,0.6 g,6.3 g,1.2 g
-Arroz negro de chipis. Katsuobushi,159.2 kcal,22.1 g,4.3 g,1.8 g,0.8 g,0.8 g,7.2 g,1.1 g
-Calamar con tomate a la siciliana,143.8 kcal,16.1 g,4.8 g,2.1 g,0.8 g,1.3 g,6.9 g,1.0 g
-Arroz de ternera y setas,152.3 kcal,19.9 g,6.2 g,1.5 g,2.4 g,1.3 g,4.1 g,0.4 g
-Pollo alla cacciatora,119.9 kcal,6.1 g,6.8 g,1.5 g,1.7 g,1.9 g,7.5 g,0.6 g
-Arroz con leche,142.3 kcal,20.7 g,5.4 g,14.2 g,3.3 g,0.06 g,3.0 g,0.1 g
-"Penne, pomodoro e salsiccia rossa",161.2 kcal,25.5 g,3.8 g,4.5 g,0.3 g,1.4 g,5.6 g,1.0 g
-Coulant dos chocolates,554.6 kcal,58.2 g,34.1 g,42.2 g,20.7 g,0.4 g,4.0 g,0.8 g
-Chicken Quinoa Taco Bowl,95.8 kcal,7.2 g,4.1 g,1.9 g,0.9 g,1.7 g,7.8 g,0.4 g
-Bonito a la brasa con escabeche ligero,98.0 kcal,2.9 g,5.8 g,2.2 g,1.0 g,1.2 g,2.5 g,1.2 g
-Ternera asada y sus patatas rústicas,106.7 kcal,10.2 g,1.4 g,3.3 g,0.4 g,1.7 g,8.6 g,0.1 g
-Garbanzos con espinacas,64.13 kcal,6.85 g,2.74 g,1.91 g,0.41 g,2.35 g,2.52 g,0.90 g
-"Ensalada de lentejas, zanahoria y manzana con vinagreta agridulce de curry",123.74 kcal,12.39 g,5.83 g,3.46 g,1.04 g,2.24 g,4.69 g,0.26 g
-Sopa de ave y verduras,37.3 kcal,4.8 g,0.7 g,0.6 g,0.2 g,0.4 g,2.9 g,0.2 g
-Couscous de verduras con pollo y almendras,93.3 kcal,3.3 g,5.4 g,2.3 g,0.5 g,3.0 g,7.5 g,0.1 g
-Verduritas asadas con romescu,84.6 kcal,9.7 g,3.8 g,3.2 g,0.5 g,2.3 g,2.3 g,0.4 g
-Judías con tomate confitado y patatas,62.6 kcal,8.6 g,2.2 g,2.7 g,0.4 g,1.9 g,1.9 g,0.4 g
-Pechuga de pollo con especias morunas y couscous,157.6 kcal,17.2 g,4.1 g,0.3 g,0.7 g,1.3 g,12.7 g,0.7 g
-Lasaña de pollo y verduritas,162.4 kcal,14.7 g,7.9 g,3.5 g,3.3 g,1.3 g,7.6 g,1.0 g
-Crema de setas,70.23 kcal,7.83 g,3.59 g,1.94 g,0.74 g,1.49 g,1.43 g,0.56 g
-Merluza en salsa verde,105.7 kcal,9.3 g,4.2 g,1.2 g,0.8 g,0.9 g,7.2 g,0.7 g
+Nombre,Energía (kcal),Carbohidratos (gr),Grasas totales (gr),Azúcares (gr),Grasas saturadas (gr),Fibra dietética (gr),Proteínas (gr),Sal (gr),Racion (gr),Energía Total (kcal)
+Ají de pollo con arroz,"176,1","21,3","5,5","1,2","1,4","0,8","10,1","0,4",500,"880,5"
+Tacos de cochinita pibil,"183,49","8,54","11,4","1,67","5,15","0,41","11,06","0,7",400,"733,96"
+Curry rojo de verduras,"72,6","8,3","2,5",2,"0,4","1,2",7,"0,3",500,363
+Lentejas estofadas con chorizo,"131,6","12,4","5,4","1,5","0,5","2,6",8,"1,1",500,658
+Spaghetti al pesto genovese,"232,6","24,6","11,9","1,5","2,7","1,3","6,4","0,3",450,"1046,7"
+" Pollo glaseado con guiso de calabacín y zanahoria","62,6","4,3","1,5","2,4","0,3","1,4","8,1","0,4",500,313
+Mac&amp;Cheese de scamorza y jamón,"208,9","25,5","8,6","4,3","4,2","1,6","7,3","0,9",500,"1044,5"
+Brownie de chocolate,"500,6","39,05","35,4",27,"19,9","0,4","6,2","0,4",180,"901,08"
+Caldo ibérico con udón y setas,"47,1","6,5","1,1","0,2","0,7","0,8","2,5","1,2",480,"226,08"
+Paella,"92,1",14,"1,9","0,2","0,6","0,3","5,2","0,4",500,"460,5"
+Terrina glaseada de codillo,"220,4","3,3","15,8","0,7","5,5","0,6","14,9","1,2",500,1102
+Albóndigas a la española con arroz,"179,7",24,"2,9","2,5","0,9","0,97","9,3","0,6",500,"898,5"
+Risotto Al Funghi,"136,8","22,1","4,3","0,5","1,6","0,7",3,"0,4",500,684
+Tarta de queso,"389,3","13,7","30,5","12,9","17,1","0,2","8,7","0,8",150,"583,95"
+Coq au vin y verduritas glaseadas,"108,9","3,3","5,6","2,8","1,3","1,4","8,8","0,7",500,"544,5"
+Chipirones encebollados,"86,27","9,81","1,86","2,58","0,36","1,39","5,71","0,4",500,"431,35"
+Crema de verduras de temporada,"81,6","5,3","6,3","2,1","2,9","1,6","1,7","0,4",500,408
+Ragú de verduras,"33,8","3,9","1,8","2,9","0,3","1,5","1,1","0,3",500,169
+Milhojas de calabacín y atún,"91,7","5,1","4,2","3,6","2,2","0,6","5,9","0,8",500,"458,5"
+Bacalao con verduras y purrusalda de jamón,"98,5","2,7","6,7","0,7","3,5","0,8","6,9","0,2",500,"492,5"
 1 kg de fruta de temporada

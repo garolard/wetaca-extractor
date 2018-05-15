@@ -25,11 +25,18 @@ namespace wetaca
 
         static async Task MainAsync()
         {
-            var content = await GetWetacaContent();
+			ClearFileIfExists();
+			var content = await GetWetacaContent();
             var coursesUrls = CheckAllCourses(content);
             var nutritionalInfos = GetNutritionalInfo(coursesUrls);
             await WriteObjectsToCsvAsync(nutritionalInfos.OrderByDescending(i => i.Properties.Count()));
         }
+
+        static void ClearFileIfExists()
+        {
+            var path = Directory.GetCurrentDirectory();
+			File.Delete(Path.Combine(path, "wetaca.csv"));
+		}
 
         static async Task<string> GetWetacaContent()
         {
@@ -91,15 +98,17 @@ namespace wetaca
         static async Task WriteHeaderAsync(CsvWriter csvWriter)
         {
             csvWriter.WriteField("Nombre");
-            csvWriter.WriteField("Energía");
-            csvWriter.WriteField("Carbohidratos");
-            csvWriter.WriteField("Grasas totales");
-            csvWriter.WriteField("Azúcares");
-            csvWriter.WriteField("Grasas saturadas");
-            csvWriter.WriteField("Fibra dietética");
-            csvWriter.WriteField("Proteínas");
-            csvWriter.WriteField("Sal");
-            await csvWriter.NextRecordAsync();
+            csvWriter.WriteField("Energía (kcal)");
+            csvWriter.WriteField("Carbohidratos (gr)");
+            csvWriter.WriteField("Grasas totales (gr)");
+            csvWriter.WriteField("Azúcares (gr)");
+            csvWriter.WriteField("Grasas saturadas (gr)");
+            csvWriter.WriteField("Fibra dietética (gr)");
+            csvWriter.WriteField("Proteínas (gr)");
+            csvWriter.WriteField("Sal (gr)");
+			csvWriter.WriteField("Racion (gr)");
+			csvWriter.WriteField("Energía Total (kcal)");
+			await csvWriter.NextRecordAsync();
         }
 
         static async Task WriteRecordsAsync(CsvWriter writer, IEnumerable<NutritionalInfo> records)
@@ -120,7 +129,9 @@ namespace wetaca
                     writer.WriteField(record.Properties["Fibra dietética"]);
                     writer.WriteField(record.Properties["Proteínas"]);
                     writer.WriteField(record.Properties["Sal"]);
-                }
+					writer.WriteField(record.Properties["Racion"]);
+					writer.WriteField(record.Properties["EnergiaTotal"]);
+				}
 				
 				await writer.NextRecordAsync();
 			}
@@ -139,11 +150,12 @@ namespace wetaca
             return info;
         }
 
-        static IDictionary<string, string> GetInfoProperties(string courseHtml)
+        static IDictionary<string, double> GetInfoProperties(string courseHtml)
         {
-            var result = new Dictionary<string, string>();
+            var result = new Dictionary<string, double>();
             var pattern = "(LC_name\\\"><)[^>]*>([\\wáéíóú\\s]*)|(LC_data\\\")[^>]*>([\\wáéíóú0-9,?\\.?\\s?]*)";
-            var matches = Regex.Matches(courseHtml, pattern);
+			var courseQuantityPattern = "(Tamaño\\s)(aproximado\\s)?(de la ración\\s)([a-z0-9,\\.\\s]+)";
+			var matches = Regex.Matches(courseHtml, pattern);
 
             if (!matches.Any())
                 return result;
@@ -156,16 +168,42 @@ namespace wetaca
                 var key = keyMatch.Groups[0].Value.Split(";\">")[1];
                 var value = valueMatch.Groups[0].Value.Split(";\">")[1].Replace(",", ".").Replace("\"", "").Trim();
 
-                result.Add(key, value);
+                try
+                {
+                    result.Add(key, ToDouble(value));
+                }
+                catch (Exception ex)
+                {
+					Console.WriteLine("Error con clave {0} y valor {1}: {2}", key, value, ex.Message);
+				}
             }
 
-            return result;
+			var courseSize = Regex.Match(courseHtml, courseQuantityPattern);
+
+            if (courseSize.Success)
+				result.Add("Racion", ToDouble(courseSize.Groups[4].Value));
+            else
+				result.Add("Racion", 0);
+
+			TryToAddTotalEnergy(result, ToDouble(courseSize.Groups[4].Value), result["Energía"]);
+
+			return result;
         }
+
+        private static void TryToAddTotalEnergy(IDictionary<string, double> result, double courseSize, double courseEnergy)
+        {
+			result.Add("EnergiaTotal", courseEnergy / 100 * courseSize);
+		}
+
+        private static double ToDouble(string str)
+        {
+			return double.Parse(str.Split(" ")[0].Replace(".", ","));
+		}
 
         private class NutritionalInfo
         {
             public string Name { get; set; }
-            public IDictionary<string, string> Properties { get; set; }
+            public IDictionary<string, double> Properties { get; set; }
         }
     }
 }
